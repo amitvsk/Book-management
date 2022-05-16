@@ -10,7 +10,7 @@ const Authentication = async function (req, res, next) {
         // getting token from req(header)
         let token = req.headers["x-api-key"];
         if (!token) token = req.headers["X-Api-Key"];
-        if (!token) {return res.status(400).send({status:false, msg: "Not Authentiated! Please login for token " });}
+        if (!token) {return res.status(400).send({status:false, msg: "Enter x-api-key In Header" });}
         // token verification
         // if(req.tokenCheck = token)return res.status(401).send({status : false , message : "Invalid token"})
        
@@ -38,7 +38,7 @@ const Authorization = async function (req, res, next) {
         let token = req.headers["x-api-key"];
         if (!token) token = req.headers["X-Api-Key"]; //taking the x-api-key of value token in headers
         // check the token are prenent or not in headers
-        if (!token) {return res.status(400).send({ Error: "Enter x-api-key In Header" });}
+        if (!token) {return res.status(400).send({status:false, msg: "Enter x-api-key In Header" });}
         // verify the token 
         let decodedToken = jwt.verify(token, "project3Group7" )
          let decoded = decodedToken.userId

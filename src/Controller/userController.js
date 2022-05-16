@@ -20,7 +20,7 @@ const Register = async function (req, res) {
         if(!Validator.isValid(name)) return res.status(400).send({status: false,message: "Name is Required"});
         if(!Validator.isValidString(name)) return res.status(400).send({status: false, message: "Invalid name : Should contain alphabetic characters only"});
        
-        if (Object.values(phone).length <= 0) return res.status(400).send({status: false,message: "Phone is Required"});
+        if (!phone) return res.status(400).send({status: false,message: "Phone is Required"});
         if (!Validator.isValidPhone(phone))  return res.status(400).send({ status: false, message: "Invalid phone number : must contain 10 digit and only number."});
 
         //check unique phone

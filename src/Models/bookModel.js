@@ -44,7 +44,8 @@ const bookSchema = new mongoose.Schema ({
     deletedAt: {
         type : Date,
         trim : true
-    }, 
+    },
+    bookCover:{type:String},
     isDeleted: {
         type : Boolean,
          default: false,

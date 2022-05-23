@@ -49,11 +49,9 @@ const Authorization = async function (req, res, next) {
             // check the user id present in body
             if(!Validator.isValid(userId)) return res.status(400).send({status: false,message: "userId is Required"});
             if(!Validator.isValidObjectId(userId))  return res.status(400).send({status: false,message: "userId is not valid"});
-
             //check the  user id are present in decoded token
             if (userId != decoded) { return res.status(401).send({status:false,msg:"Not Authorised!!"})}
-        }
-        else{
+        }else{
             if(!Validator.isValid(bookId)) return res.status(400).send({status: false,message: "book Id is Required"});
             if(!Validator.isValidObjectId(bookId))  return res.status(400).send({status: false,message: "book Id is not valid"});
 
